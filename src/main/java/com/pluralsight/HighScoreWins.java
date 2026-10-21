@@ -6,8 +6,28 @@ public class HighScoreWins {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.print();
+        System.out.print("Please enter the game score: ");
+        System.out.println("(Example: Home:Visitor|#:#) ");
+        String input = scanner.nextLine().trim();
 
+        String[] sections = input.split("\\|");
+
+        String[] teams = sections[0].split(":");
+
+        String[] scores = sections[1].split(":");
+
+        String homeTeam = teams[0];
+        String visitorTeam = teams[1];
+        int homeScores = Integer.parseInt(scores[0]);
+        int visitorScores = Integer.parseInt(scores[1]);
+
+        if (homeScores > visitorScores) {
+            System.out.println("Winner: " + homeTeam);
+        } else if (visitorScores > homeScores) {
+            System.out.println("Winner: " + visitorTeam);
+        } else {
+            System.out.println("Winner: Tie!");
+        }
     }
 }
 
